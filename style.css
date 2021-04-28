@@ -1,0 +1,144 @@
+* {  
+    margin: 0;  
+    padding: 0;  
+    border: 0;  
+    font-size: 100%;  
+    font: inherit;  
+    vertical-align: baseline; 
+ }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background: #F7FBFA;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title {
+    color: #4C504F;
+    font-size: 2.5rem;
+}
+
+header hr.sep-line {
+    width: 80%;
+    border-bottom: 1px solid #E5E9E8;
+}
+
+.page-name {
+    font-size: 1.3rem;
+}
+
+.main-container {
+    width: 80%;
+    margin-top: 50px;
+}
+
+.images-container {
+    flex: 1;
+}
+
+.big-image {
+    width: 370px;
+    height: 370px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.gallery-container {
+    width: 370px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.gallery-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.product-details {
+    margin-left: 20px;
+    flex: 2;
+}
+
+.product-details .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.product-details .price {
+    font-size: 1.1rem;
+}
+
+.product-details .description {
+    font-size: 1rem;
+    margin-top: 20px;
+    line-height: 1.5rem;
+}
+
+.images-options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    flex: 1;
+}
+
+select,
+input {
+    outline: none;
+    border: 1px solid #E3E1E2;
+    padding: 5px 10px;
+    background: #FAFCFB;
+    margin-bottom: 20px;
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.quantity input {
+    text-align: center;
+}
+
+.quantity .add,
+.quantity .reduce {
+    cursor: pointer;
+}
+
+.add-to-cart {
+    background: #31B59E;
+    width: 100%;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
+.out-of-stock {
+    padding: 10px;
+    font-size: 1.2rem;
+    color: red;
+    font-weight: 600;
+}
+
+.disabledBtn {
+    pointer-events: none;
+    opacity: 0.5;
+}

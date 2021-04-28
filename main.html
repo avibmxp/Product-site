@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Product</title>
+        <meta name="description" content="Products list">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="app">
+            <header>
+                <div class="main-title">SPECTRUM</div>
+                <hr class="sep-line"/>
+                <div class="page-name">Home</div>
+            </header>
+            <section class="center">
+                <div class="center main-container">
+                    <div class="images-container">
+                        <img class="big-image" v-bind:src="bigImage"/>
+                        <div class="gallery-container">
+                            <img v-for="image in product.images" v-bind:src="imageFormat(image, 100, 100)"/>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="title" v-text="currentVariant.title"></div>
+                        <div class="price">${{currentVariant.price}}</div>
+                        <div class="description" v-text="product.description"></div>
+                    </div>
+                    <div class="images-options">
+                        <select v-model='sColor'>
+                            <option value='-1' disabled>Choose Color</option>
+                            <option v-for="color in colors.labels" v-text="color.title" v-bind:value="color.id"></option>
+                        </select>
+                        <select v-model='sSize'>
+                            <option value='-1' disabled>Choose Size</option>
+                            <option v-for="size in currentSizes" v-text="size.title" v-bind:value="size.id"></option>
+                        </select>
+                        <div class="quantity">
+                            <div>Quantity: </div>
+                            <div>
+                                <input type="number" min="0" v-bind:max="currentVariant.max_purchase_limit != null ? currentVariant.max_purchase_limit : 10000" v-model='quantity'/>
+                            </div>
+                        </div>
+                        <button class="add-to-cart" v-on:click="addToCart" v-bind:class="{ disabledBtn: disableAddToCard }">Add to cart</button>                        
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"></script>
+        <script src="scripts.js" async defer></script>
+    </body>
+</html>
